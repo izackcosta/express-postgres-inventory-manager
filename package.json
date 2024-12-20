@@ -7,7 +7,7 @@
   },
   "author": "Izack-Costa",
   "license": "ISC",
-  "description": "Simple Node.JS / Express.JS / Postgres CRUD app made for learning purposes",
+  "description": "Simple Node.JS / Express.JS / Postgres CRUD inventory management app made for learning purposes",
   "dependencies": {
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
