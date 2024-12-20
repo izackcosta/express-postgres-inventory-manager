@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+    <h1>Welcome to your inventory management system!!!</h1>
+
+    <% for(let i = 0; i < items.length; i++){ %>
+
+        <div style="border-style: solid; border-width: 1px; border-color: black; width: fit-content; padding: 10px; margin: 10px;">
+        <h2> Item: <%= items[i].item_name %></h2>
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Category: <%= items[i].category_name %></h3>
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quantity: <%= items[i].item_quantity %></h3>
+        <form method="POST" action="/<%= items[i].item_id %>/delete"><button type="submit">Delete Item</button></form>
+        <a href="/<%= items[i].item_id %>/update" ><button>Update Item</button></a>
+        </div>
+
+    <% } %>
+    
+    <br>
+
+    <a href="/create"><button>Add Item</button></a>
+
+    <br>
+
+    <a href="/categories"> <p>see categories</p> </a>
+
+    </body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <%- include('return.ejs') %>
+    </head>
+
+    <body>
+
+        <% if(errors){ %>
+            <% errors.forEach( e => { %>
+                <%= e.msg %>
+            <% }); %>
+        <% } %>
+
+        <form method="POST" action="/create">
+
+            <label for="name">Item: </label>
+            <input type="text" name="name">
+            <label for="category">Category: </label>
+            <select name="category">
+                <% for(let i = 0; i < categories.length; i++){ %>
+                    <option value= <%= categories[i].category_id %>> <%= categories[i].category_name %> </option>
+                <% } %>
+            </select>
+            <input type="number" name="quantity">
+            <button type="submit"> Create </button>
+
+        </form>
+
+    </body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <%- include('return.ejs') %>
+        <h1> Available Categories: </h1>
+
+    </head>
+
+    <body>
+
+        <% if(errors){ %>
+            <% errors.forEach( e => { %>
+                <%= e.msg %>
+            <% }); %>
+        <% } %>
+
+        <ul>
+        <% for(let i = 0; i < categories.length; i++){ %>
+            <li style="border-style: solid; border-width: 1px; width: fit-content; padding: 10px; margin: 10px;"> 
+                <h2> <%= categories[i].category_name %> </h2>
+                <% if(update == categories[i].category_id){ %>
+                    <form action="/categories/<%= categories[i].category_id %>/update" method="POST">
+                        <label for="name">New name: </label>
+                        <input type="text" name="name">
+                        <button type="submit">Update</button>
+                    </form>
+                <% } else {%>
+                    <a href="/categories/<%= categories[i].category_id %>"><button> Update </button></a>
+                <% } %>
+                <form method="POST" action="/categories/<%= categories[i].category_id %>/delete">
+                    <button type="submit"> Delete </button>
+                </form>
+                <button>See Items</button>
+            </li>  
+        <% } %>
+        </ul>
+
+        <h2>Create new category: </h2>
+        <form method="POST" action="/categories/create">
+            <label for="name">Category name: </label>
+            <input type="text" name="name">
+            <button type="submit">Add</button>
+        </form>
+
+    </body>
+
+</html>
